@@ -116,13 +116,10 @@ main { min-height: 55vh; }
 .button.primary { background: var(--accent); color: #fff; }
 .button.primary:hover { background: var(--accent-hover); }
 .button.secondary { border: 1px solid var(--accent); background: #fff; color: var(--accent); }
-.map-art { position: relative; display: grid; place-content: center; overflow: hidden; height: 260px; border-radius: 10px; background: #fff0df; color: var(--accent); text-align: center; }
-.map-art::before, .map-art::after { position: absolute; content: ""; background: #f1d8c1; }
-.map-art::before { top: 36%; left: -10%; width: 130%; height: 30px; transform: rotate(-24deg); }
-.map-art::after { top: -10%; left: 66%; width: 32px; height: 130%; transform: rotate(28deg); }
-.map-art span, .map-art strong { z-index: 1; }
-.map-art span { font-size: 53px; line-height: 1; }
-.map-art strong { padding: 3px 12px; border-radius: 4px; background: #fff; }
+.real-map { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--warm); }
+.real-map iframe { display: block; width: 100%; height: 340px; border: 0; }
+.real-map .map-credit { margin: 0; padding: 12px 16px; color: var(--muted); font-size: 16px; font-weight: 700; line-height: 1.6; }
+.map-credit a { color: var(--accent); text-decoration: underline; }
 
 .page-title { padding: 58px 0 54px; background: var(--pale); }
 .page-title h1 { margin: 8px 0 0; font-size: clamp(31px, 3.5vw, 42px); line-height: 1.35; }
@@ -135,7 +132,7 @@ main { min-height: 55vh; }
 .detail-card h3 { margin: 16px 0 12px; font-size: 25px; line-height: 1.45; }
 .detail-card p { margin: 0; color: var(--muted); }
 .detail-card .service-description { line-height: 1.85; }
-.detail-card .service-note { margin: 22px 0; padding: 18px 20px; border-left: 4px solid var(--brand-orange); border-radius: 0 6px 6px 0; background: var(--warm); color: var(--ink); line-height: 1.9; }
+.detail-card .service-note { margin: 22px 0; padding: 18px 20px; border-left: 4px solid var(--brand-orange); border-radius: 0 6px 6px 0; background: var(--warm); color: var(--ink); line-height: 1.9; white-space: pre-line; }
 .service-note strong { font-weight: 800; }
 .small-note { font-size: 16px; color: var(--muted); }
 .service-info { margin-top: 0; }
@@ -207,7 +204,8 @@ main { min-height: 55vh; }
   .service-warning { font-size: 16px; }
   .access-home { display: block; }
   .access-home p { font-size: 18px; }
-  .map-art { height: 215px; margin-top: 34px; }
+  .real-map { margin-top: 34px; }
+  .real-map iframe { height: 300px; }
   .page-title { padding: 40px 0 37px; }
   .page-body { padding-block: 42px 82px; }
   .detail-card { padding: 23px 20px; }

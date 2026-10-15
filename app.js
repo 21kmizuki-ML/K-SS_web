@@ -34,6 +34,17 @@
     return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(config.address);
   }
 
+  function mapEmbedUrl() {
+    const { latitude, longitude } = config.map;
+    const bounds = [
+      longitude - 0.003, latitude - 0.002,
+      longitude + 0.003, latitude + 0.002
+    ].join(',');
+    return 'https://www.openstreetmap.org/export/embed.html?bbox=' +
+      encodeURIComponent(bounds) + '&layer=mapnik&marker=' +
+      encodeURIComponent(latitude + ',' + longitude);
+  }
+
   function renderHome() {
     return `<section class="hero shell">
       <div class="hero-copy">
@@ -63,7 +74,10 @@
         <p>〒${escapeHtml(config.postalCode)}<br>${escapeHtml(config.address)}</p>
         <div class="button-row"><a class="button primary" href="${mapUrl()}" target="_blank" rel="noopener noreferrer">Googleマップで経路を見る ↗</a></div>
       </div>
-      <div class="map-art" aria-hidden="true"><span>⌖</span><strong>交野SS</strong></div>
+      <div class="real-map">
+        <iframe title="ENEOS 交野SS周辺の地図" src="${escapeHtml(mapEmbedUrl())}" loading="lazy"></iframe>
+        <p class="map-credit"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer"></p>
+      </div>
     </section>`;
   }
 
